@@ -48,3 +48,15 @@ test.it('find should return an object with an id, which is instanceof ObjectId',
         })
     })
 })
+
+test.it('all should return object with an id, which is instanceof ObjectID', function (test) {
+    var post = new Post({title: 'a'})
+    post.save(function (err, post) {
+        Post.all({where: {title: 'a'}}, function (err, posts) {
+            test.ok(!err)
+            test.equal(posts.length, 1)
+            test.ok(posts[0].id instanceof ObjectID)
+            test.done()
+        })
+    })
+})
