@@ -1,7 +1,7 @@
 // This test written in mocha+should.js
 var should = require('./init.js');
 
-var User, Post, db;
+var User, Post, db, Test;
 
 describe('mongodb', function(){
 
@@ -19,6 +19,12 @@ describe('mongodb', function(){
             content:   { type: String }
         });
 
+        Test = db.define('Test', {
+            name:     { type: String}
+        }, {
+            table: 'test_collection'
+        });
+
         User.hasMany(Post);
         Post.belongsTo(User);
     });
@@ -26,9 +32,10 @@ describe('mongodb', function(){
     beforeEach(function(done) {
         User.destroyAll(function() {
             Post.destroyAll(function() {
-                done();
+                Test.destroyAll(done);
             });
         });
+
     });
 
     it('hasMany should support additional conditions', function (done) {
@@ -84,9 +91,24 @@ describe('mongodb', function(){
         });
     });
 
+    it('should use the table setting if setted', function(done) {
+        var post = new Post({title: 'a'})
+        should.exist(db.adapter.collections.Post);
+
+
+        var test = new Test({name: 'testing'});
+
+        should.not.exist(db.adapter.collections.Test);
+        should.exist(db.adapter.collections.test_collection);
+
+        done();
+    });
+
     after(function(done){
         User.destroyAll(function(){
-            Post.destroyAll(done);
+            Post.destroyAll(function() {
+                Test.destroyAll(done);
+            });
         });
     });
 });
