@@ -105,9 +105,11 @@ describe('mongodb', function(){
     });
 
     it('should create an object if wrong id type is passed if using upsert', function(done) {
-        User.upsert({id: new db.ObjectID}, function(err, user) {
+        var id = new db.ObjectID;
+        User.upsert({id: id}, function(err, user) {
             should.not.exist(err);
             should.exist(user);
+            user.id.toString().should.equal(id.toString());
 
             done();
         });
