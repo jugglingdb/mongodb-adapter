@@ -26,10 +26,12 @@ describe('ObjectID', function() {
 
     });
 
-    it('should work when create with id', function(done) {
-        Book.create({id: new db.ObjectID}, function(err, b) {
+    it.only('should work when create with id', function(done) {
+        var id = new db.ObjectID;
+        Book.create({id: id}, function(err, b) {
             should.not.exist(err);
             b.id.should.be.an.instanceOf(db.ObjectID);
+            b.id.toString().should.equal(id.toString());
             done();
         });
     });
