@@ -26,7 +26,7 @@ describe('ObjectID', function() {
 
     });
 
-    it.only('should work when create with id', function(done) {
+    it('should work when create with id', function(done) {
         var id = new db.ObjectID;
         Book.create({id: id}, function(err, b) {
             should.not.exist(err);
