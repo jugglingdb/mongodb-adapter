@@ -115,6 +115,30 @@ describe('mongodb', function(){
         });
     });
 
+    it('should create and update an object using upsert', function(done) {
+        var id = new db.ObjectID;
+        var email = 'user@email.com';
+        var updatedEmail = 'user@email2.com';
+        User.upsert({id: id, email: email}, function(err, user) {
+            should.not.exist(err);
+            should.exist(user);
+            user.email.should.equal(email);
+            user.id.toString().should.equal(id.toString());
+            User.find(id, function(err, user){
+                should.not.exist(err);
+                user.email.should.equal(email);
+                User.upsert({id: id, email: updatedEmail}, function(err, user){
+                    User.find(id, function(err, user) {
+                        should.not.exist(err);
+                        user.id.should.equal(id);
+                        user.email.should.equal(updatedEmail);
+                        done();
+                    });
+                });
+            })
+        });
+    });
+
     after(function(done){
         User.destroyAll(function(){
             Post.destroyAll(function() {
