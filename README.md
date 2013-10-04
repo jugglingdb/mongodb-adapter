@@ -22,9 +22,9 @@ To use it you need `jugglingdb@0.2.x`.
 2. Use:
 
     ```javascript
-        var Schema = require('jugglingbd').Schema;
-        var schema = new Schema('mongodb');
-        ...
+    var Schema = require('jugglingdb').Schema;
+    var schema = new Schema('mongodb');
+    ...
     ```
 
 ## Running tests
