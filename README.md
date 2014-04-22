@@ -26,6 +26,15 @@ To use it you need `jugglingdb@0.2.x`.
     var schema = new Schema('mongodb');
     ...
     ```
+    You can also set some settings in your schema, as [write concern and journaling](http://docs.mongodb.org/manual/core/write-concern/):
+    ```javascript
+    var Schema = require('jugglingdb').Schema;
+    var schema = new Schema('mongodb', {
+        url: 'mongodb://localhost/myapp',
+        w: 1,
+        j: 1
+    });
+    ```
 
 ## Running tests
 
