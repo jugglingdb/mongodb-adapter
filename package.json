@@ -7,7 +7,7 @@
     "test": "make test"
   },
   "dependencies": {
-    "mongodb": ">=0.9.9"
+    "mongodb": "1.x"
   },
   "devDependencies": {
     "jugglingdb": "https://github.com/1602/jugglingdb/archive/master.tar.gz",
