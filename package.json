@@ -9,7 +9,7 @@
     "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
   },
   "dependencies": {
-    "mongodb": "1.4"
+    "mongodb": "^1.4.40"
   },
   "devDependencies": {
     "jugglingdb": "https://github.com/1602/jugglingdb/archive/master.tar.gz",
