@@ -1,4 +1,10 @@
-## JugglingDB-MongoDB [![Build Status](https://travis-ci.org/jugglingdb/mongodb-adapter.png)](https://travis-ci.org/jugglingdb/mongodb-adapter)
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+[![Build status][build-image]][build-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
+[![Dependency Status][dependencies-image]][dependencies-url]
+
+## JugglingDB-MongoDB
 
 MongoDB adapter for jugglingdb.
 
@@ -64,4 +70,15 @@ password: `test`, database: `myapp`
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
+
+[coveralls-url]: https://coveralls.io/github/jugglingdb/mongodb-adapter
+[coveralls-image]: https://coveralls.io/repos/github/jugglingdb/mongodb-adapter/badge.svg
+[build-url]: https://circleci.com/gh/jugglingdb/mongodb-adapter
+[build-image]: https://circleci.com/gh/jugglingdb/mongodb-adapter.svg?style=shield
+[npm-image]: https://img.shields.io/npm/v/jugglingdb-mongodb.svg
+[npm-url]: https://npmjs.org/package/jugglingdb-mongodb
+[downloads-image]: https://img.shields.io/npm/dm/jugglingdb-mongodb.svg
+[downloads-url]: https://npmjs.org/package/jugglingdb-mongodb
+[dependencies-image]: https://david-dm.org/jugglingdb/mongodb-adapter.svg
+[dependencies-url]: https://david-dm.org/jugglingdb/mongodb-adapter
 
